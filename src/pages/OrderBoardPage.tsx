@@ -1,12 +1,13 @@
-import React from "react";
-import { DUMMY_DATA } from "../data";
+import { Box } from "@mui/material";
 import Layout from "../components/Layout";
+import OrderBoard from "../features/order/OrderBoard";
 
 const OrderBoardPage = () => {
-  console.log(DUMMY_DATA);
   return (
     <Layout>
-      <div>OrderBoardPage</div>
+      <Box height={"calc(100vh - 64px)"}>
+        <OrderBoard />
+      </Box>
     </Layout>
   );
 };
