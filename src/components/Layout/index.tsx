@@ -1,17 +1,18 @@
 import React from "react";
-import { LayoutProps } from "./Layout.type";
+import { LayoutProps } from "./index.type";
+import { Outlet } from "react-router-dom";
+import Header from "../Header";
 
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div
       style={{
-        backgroundColor: "lightblue",
         width: "100vw",
         height: "100vh",
       }}
     >
-      <div>this is header</div>
-      <div>{children}</div>
+      <Header />
+      <main>{children ? <>{children}</> : <Outlet />}</main>
     </div>
   );
 };
