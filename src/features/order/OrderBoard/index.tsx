@@ -17,6 +17,7 @@ import OrderQuantity from "../../../components/Order/OrderQuantity";
 import OrderColumn from "../OrderColumn";
 import { DUMMY_DATA as data } from "../../../data";
 import OrderCard from "../OrderCard";
+
 const StyledTab = styled(Tab)({
   minHeight: "50px",
   "&:focus": {
@@ -152,43 +153,9 @@ const OrderBoard = () => {
         renderOrderList={() => {
           return (
             <>
-              {data.map((order: any) => {
-                return (
-                  <Card key={Math.random()}>
-                    <CardHeader
-                      avatar={
-                        <Avatar src="https://res.cloudinary.com/ordering2/image/upload/v1694207449/peperoni/xkubj7gxc1jrv9wtfqkj.png" />
-                      }
-                      title={"Test Venue (Juicy Burger)"}
-                      sx={{
-                        backgroundColor: "aqua",
-                        padding: "0.5rem",
-                        textAlign: "center",
-                      }}
-                    />
-                    <CardContent
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        padding: "0.5rem",
-                      }}
-                    >
-                      <Typography>
-                        {" "}
-                        # {order.id} | {order.customer.name}{" "}
-                        {order.customer.lastName}
-                      </Typography>
-                      <Box display={"flex"} flexDirection={"column"}>
-                        <Icon>fa</Icon>
-                        <Icon>fa</Icon>
-                      </Box>
-                    </CardContent>
-                    <CardContent>render product list here</CardContent>
-                    <CardActions>List of buttons here</CardActions>
-                  </Card>
-                );
-              })}
+             {data.map((order: any) => {
+                    return <OrderCard order={order} key={Math.random()} />;
+                  })}
             </>
           );
         }}
@@ -218,7 +185,7 @@ const OrderBoard = () => {
             <>
               {data.map((order: any) => {
                 return (
-                  <Card>
+                  <Card key={Math.random()}>
                     <CardHeader
                       title={`#${order.id}`}
                       subheader={`${order.customer.name} ${order.customer.lastName}`}
