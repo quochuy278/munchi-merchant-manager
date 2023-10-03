@@ -1,9 +1,7 @@
-import React from "react";
-import { LayoutProps } from "./index.type";
 import { Outlet } from "react-router-dom";
-import Header from "../Header";
+import { LayoutProps } from "./index.type";
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, renderHeader }: LayoutProps) => {
   return (
     <div
       style={{
@@ -11,7 +9,7 @@ const Layout = ({ children }: LayoutProps) => {
         height: "100vh",
       }}
     >
-      <Header />
+      {renderHeader()}
       <main>{children ? <>{children}</> : <Outlet />}</main>
     </div>
   );
